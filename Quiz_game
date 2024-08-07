@@ -1,0 +1,39 @@
+#Build a simple quiz game that asks users a series of questions.
+def run_quiz(questions):
+    score = 0
+    for question in questions:
+        print(question["text"])
+        for i, choice in enumerate(question["choices"]):
+            print(f"{i+1}. {choice}")
+        answer = input("Your answer (1-4): ")
+        if question["choices"][int(answer)-1] == question["correct"]:
+            score += 1
+            print("Correct!")
+        else:
+            print(f"Incorrect. The correct answer is {question['correct']}")
+    print(f"You scored {score} out of {len(questions)}")
+#user performance
+questions = [
+    {
+        "text": "What is the capital of France?",
+        "choices": ["Berlin", "Paris", "Madrid", "Rome"],
+        "correct": "Paris"
+    },
+    {
+        "text": "What is the largest planet in our solar system?",
+        "choices": ["Jupiter", "Mars", "Venus", "Saturn"],
+        "correct": "Jupiter"
+    },
+    {
+        "text":"Which planet is known as the Red Planet?",
+        "choices": ["Earth", "Mars", "Jupiter", "Saturn"],
+        "correct": "Mars"
+    },{
+        "text": "Who was the python introdused?",
+        "choices": ["Guido van rossum", "James Gosling", "Dennis Ritchie", "Patrick Naughton"],
+        "correct": "Guido van rossum"
+    },
+    # Add more questions here
+]
+
+run_quiz(questions)
